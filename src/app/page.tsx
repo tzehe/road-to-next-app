@@ -5,7 +5,7 @@ const HomePage = () => {
     return (
         <div>
             <h2 className='text-lg'>Home Page</h2>
-            <Link href={'/tickets/' as Route}></Link>
+            <Link href={'/tickets/' as Route}>Tickets</Link>
         </div>
     )
 

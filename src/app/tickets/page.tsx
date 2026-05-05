@@ -1,19 +1,20 @@
-import type {Route} from "next";
-import Link from "next/link";
-import {initialTickets} from "@/data";
-import {ticketPath} from "@/paths";
+import {Suspense} from "react";
+import Spinner from "@/components/Spinner";
+import TicketList from "@/features/ticket/TicketList";
 
-const TicketsPage = () => (
-    <div>
-        <h2 className="text-2xl">Tickets Page</h2>
-        {initialTickets.map((ticket) => (
-            <div key={ticket.id}>
-                <Link href={ticketPath(ticket.id) as Route}>{ticket.title}</Link>
-            </div>)
-        )}
+const TicketsPage = () => {
+    return (
+        <>
+            <h2 className="text-2xl">Tickets Page</h2>
+            <div>Here are your current Ticket List:</div>
+            <Suspense fallback={<Spinner />}>
+                <TicketList/>
+            </Suspense>
+        </>
 
+    )
 
-    </div>
-)
+}
+
 
 export default TicketsPage
