@@ -1,5 +1,6 @@
+import {notFound} from "next/navigation";
 import {Button} from "@/components/ui/button";
-import {initialTickets} from '@/data';
+import {getTicket} from "@/features/ticket/queries";
 
 type TicketPageProps = {
     params: Promise<{ ticketId: string }>
@@ -15,10 +16,10 @@ const TICKET_ICONS = {
 
 const TicketPage = async ({params}: TicketPageProps) => {
     const {ticketId} = await params;
-    const ticket = initialTickets.find(t => t.id === ticketId);
+    const ticket = await getTicket(ticketId);
 
     if (!ticket) {
-        return (<div>No available tickets</div>)
+        notFound();
     }
 
     return (
