@@ -1,4 +1,5 @@
 import {initialTickets} from '@/data';
+import {Button} from "@/components/ui/button";
 
 type TicketPageProps = {
     params: Promise<{ ticketId: string }>
@@ -25,6 +26,7 @@ const TicketPage = async ({params}: TicketPageProps) => {
             <h2 className='text-lg'>Tickets Page</h2>
             <p>Ticket Nr: {ticket.id}</p>
             <p>Status: {TICKET_ICONS[ticket.status]}</p>
+            <Button variant="outline">Button</Button>
         </div>
     )
 }
