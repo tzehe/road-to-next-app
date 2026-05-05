@@ -1,5 +1,5 @@
-import {initialTickets} from '@/data';
 import {Button} from "@/components/ui/button";
+import {initialTickets} from '@/data';
 
 type TicketPageProps = {
     params: Promise<{ ticketId: string }>
