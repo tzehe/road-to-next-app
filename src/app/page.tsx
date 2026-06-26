@@ -1,11 +1,11 @@
-import type {Route} from "next";
 import Link from "next/link";
+import {ticketsPath} from "@/paths";
 
 const HomePage = () => {
     return (
         <div>
             <h2 className='text-lg'>Home Page</h2>
-            <Link href={'/tickets/' as Route}>Tickets</Link>
+            <Link href={ticketsPath()}>Tickets</Link>
         </div>
     )
 
